@@ -1,12 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DatabaseTask.Core.Domain
 {
-    internal class LoanableItem
+    public class LoanableItem
     {
+        [Key]
+        public Guid LoanableItemId { get; set; }
+
+        public string ItemName { get; set; }
+
+        public bool LoanStatus { get; set; }
     }
 }

@@ -1,12 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DatabaseTask.Core.Domain
 {
-    internal class HealthCheck
+    public class HealthCheck
     {
+        [Key]
+        public Guid HealthCheckId { get; set; }
+
+        public DateTime Date { get; set; }
+
+        [StringLength(50)]
+        public string DoctorName { get; set; }
+
+        // Foreign key
+        [ForeignKey("Employee")]
+        public Guid EmployeeId { get; set; }
+
+        // Navigation property
+        public Employee Employee { get; set; }
     }
 }

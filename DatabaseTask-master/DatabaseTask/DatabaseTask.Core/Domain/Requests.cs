@@ -1,12 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DatabaseTask.Core.Domain
 {
-    internal class Requests
+    public class Request
     {
+        [Key]
+        public Guid RequestId { get; set; }
+
+        public string Topic { get; set; }
+
+        public string Content { get; set; }
+
+        // Foreign key
+        [ForeignKey("Employee")]
+        public Guid EmployeeId { get; set; }
+
+        public string Status { get; set; }
+
+        // Navigation property
+        public Employee Employee { get; set; }
     }
 }
