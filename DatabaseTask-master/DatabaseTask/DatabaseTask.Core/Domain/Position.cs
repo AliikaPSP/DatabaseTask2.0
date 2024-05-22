@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace DatabaseTask.Core.Domain
 {
-    internal class Position
+    public class Position
     {
+        [Key]
+        public Guid PositionId { get; set; }
+
+        public decimal Salary { get; set; }
+
+        public string PositionTitle { get; set; }
+
+        public string Description { get; set; }
     }
 }
